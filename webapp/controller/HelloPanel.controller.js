@@ -13,27 +13,8 @@ sap.ui.define([
 
             MessageToast.show(sMsg);
         },
-
-        onOpenDialog: function () {
-            var oView = this.getView();
-
-            // create the dialog lazily
-            if (!this.byId('helloDialog')) {
-                // load asynchronous XML fragment
-                Fragment.load({
-                    id: oView.getId(),
-                    name: "sap.ui.demo.walkthrough.view.HelloDialog",
-                    controller: this
-                }).then(function (oDialog) {
-                    oView.addDependent(oDialog);
-                    oDialog.open();
-                })
-            } else {
-                this.byId("helloDialog").open();
-            }
-        },
-        onCloseDialog: function () {
-            this.byId("helloDialog").close();
+        onOpenDialog: function(){
+            this.getOwnerComponent().openHelloDialog();
         }
     })
 });
