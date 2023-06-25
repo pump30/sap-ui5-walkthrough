@@ -6,7 +6,7 @@ sap.ui.define([
 ], function(Controller,MessageToast,JSONModel, ResourceModel){
     "use strict"
 
-    return Controller.extend("sap.ui.demo.walkthrough.view", {
+    return Controller.extend("sap.ui.demo.walkthrough.view.App", {
 
         onShowHello: function(){
             //read msg from i18n model
