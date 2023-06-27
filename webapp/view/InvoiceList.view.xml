@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName=""
+    controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:c="sap.ui.core"
@@ -14,8 +14,17 @@
         items="{invoice>/Invoices}"
     >
         <items>
-            <ObjectListItem 
-            title="{invoice>Quantity} x {invoice>ProductName}"></ObjectListItem>
+            <ObjectListItem
+                title="{invoice>Quantity} x {invoice>ProductName}"
+                number="{
+                parts: [{path: 'invoice>ExtendedPrice'},{path: 'view>currency'}],
+                type: 'sap.ui.model.type.Currency',
+                formatOptions: {
+                    showMeasure: false
+                }
+                }"
+                numberUnit="{view>/currency}"
+            />
         </items>
-    </List>    
+    </List>
 </mvc:View>
